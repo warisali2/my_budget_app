@@ -2,9 +2,11 @@ from django.contrib import admin
 
 from .models import Category, Expenditure, IncomeSource
 
+@admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ['name']
 
+@admin.register(Expenditure)
 class ExpenditureAdmin(admin.ModelAdmin):
     list_display = ['date', 'description', 'get_category_name', 'amount']
 
@@ -14,11 +16,8 @@ class ExpenditureAdmin(admin.ModelAdmin):
     get_category_name.admin_order_field = 'category'
     get_category_name.short_description = 'Name'
 
+@admin.register(IncomeSource)
 class IncomeSourceAdmin(admin.ModelAdmin):
     list_display = ['date', 'name', 'description', 'amount']
 
     empty_value_display = '<center>-</center>'
-
-admin.site.register(Category, CategoryAdmin)
-admin.site.register(Expenditure, ExpenditureAdmin)
-admin.site.register(IncomeSource, IncomeSourceAdmin)
