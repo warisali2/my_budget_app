@@ -2,6 +2,10 @@ from django.contrib import admin
 
 from .models import Category, Expenditure, IncomeSource
 
+admin.site.site_header = "myBudget App"
+
+admin.site.site_title  = "myBudget App"
+
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ['name']
