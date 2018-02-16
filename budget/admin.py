@@ -3,7 +3,7 @@ from django.contrib import admin
 from .models import Category, Expenditure, IncomeSource
 
 admin.site.site_header = "myBudget App"
-
+admin.site.index_title = "Dashboard"
 admin.site.site_title  = "myBudget App"
 
 @admin.register(Category)
